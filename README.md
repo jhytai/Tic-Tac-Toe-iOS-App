@@ -28,3 +28,36 @@ This is our submission for the Midterm Project.
 - [ ] Settings Page (SettingsViewController.swift)
 - [ ] Game Page (GameViewController.swift)
 - [ ] Internationalization
+
+## Project Requirements ##
+
+- [ ] Callbacks
+
+	- The user should be able to click at least one View that causes a callback function to be called, which produces an apparent result back to the user.
+
+- [ ] Logging
+
+	- Important events should be logged to the output window.
+
+- [ ] Storyboard Layout
+
+	- The app should be designed using the Storyboard, and not other methods.
+
+- [ ] API Based User Interface
+
+	- At least one View should be created, setup, and constrained programmatically. If you wish to code your entire app using API Based User Interface and avoid Storyboard altogether, you may do so. But only if you wish.
+
+- [ ] Text Input and Delegation
+
+	- Your app must use at least two different types of software keyboards. Your app must also detect the type of the keyboard at some point and use it to filter the user’s invalid character input.
+
+- [ ] Internationalization and Localization
+
+	- Your app must be prepared for internationalization and localized to at least two languages, and two regions. The regions must use different decimal separators or some other significant aspect that can be demonstrated in class.
+	- Example: English/US and Spanish/Spain.
+
+- [ ] Assets and Resources
+	- Your app should have at least two distinct assets utilized within the Storyboard/scene, somewhere. The user should be able to cause at least one of the resources to change via interaction (i.e., callback).
+	- Example: UIImageView holding a custom image for your app, which changes when the user clicks some button (or when the user has changed something, somewhere).
+	- At least one asset should change/adapt based on device configuration or other qualifier.
+	- Example: Logo that changes depending on screen size or orientation or whether the app runs on an iPhone/iPad.
