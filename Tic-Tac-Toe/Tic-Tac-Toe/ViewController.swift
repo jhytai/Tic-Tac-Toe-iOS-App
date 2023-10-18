@@ -26,7 +26,11 @@ class ViewController: UIViewController
         
         // Initialize Welcome Label
         self.welcomeLabel = UILabel()
-        self.welcomeLabel.text = "The Tic-TacToe Game"
+        self.welcomeLabel.text = "The Tic Tac Toe Game"
+        self.welcomeLabel.font = UIFont.systemFont(ofSize: 40)
+        self.welcomeLabel.numberOfLines = 0
+        self.welcomeLabel.lineBreakMode = .byWordWrapping
+        self.welcomeLabel.textAlignment = .center
         self.welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(welcomeLabel)
         
@@ -38,25 +42,29 @@ class ViewController: UIViewController
         // Initialize Get Started Button
         self.getStartedButton = UIButton(type: .system)
         self.getStartedButton.setTitle("Get Started", for: .normal)
-        self.getStartedButton.addTarget(self,
-                                        action: #selector(getStartedButtonTapped(_:)),
-                                        for: .touchUpInside)
+        self.getStartedButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
+        self.getStartedButton.addTarget(self, action: #selector(getStartedButtonTapped(_:)), for: .touchUpInside)
         self.getStartedButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(getStartedButton)
         
         // Set up constraints
         NSLayoutConstraint.activate([
             // Constrain welcomeLabel
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            self.welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            self.welcomeLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            self.welcomeLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             // Constrain logoImageView
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 50),
+            self.logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.logoImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 50),
+            self.logoImageView.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            self.logoImageView.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            self.logoImageView.widthAnchor.constraint(equalTo: logoImageView.heightAnchor),
             
             // Constrain getStartedButton
-            getStartedButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            getStartedButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 25)
+            self.getStartedButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.getStartedButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50)
         ])
     }
 
