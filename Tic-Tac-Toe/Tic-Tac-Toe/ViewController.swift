@@ -7,7 +7,7 @@
 
 import UIKit
 
-// View Controller for Main (Landing Page / Welcome Page)
+// View Controller for Landing Page
 class ViewController: UIViewController
 {
     var welcomeLabel: UILabel!
@@ -21,7 +21,7 @@ class ViewController: UIViewController
         }
 
     override func loadView()
-    {
+        {
         super.loadView()
         
         // Initialize Welcome Label
@@ -65,12 +65,13 @@ class ViewController: UIViewController
             // Constrain getStartedButton
             self.getStartedButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.getStartedButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50)
-        ])
-    }
+            ])
+        }
 
     @objc func getStartedButtonTapped(_ sender: UIButton)
         {
         print("Get Started button tapped!")
+        tabBarController?.selectedIndex = 1
         }
 
 }
