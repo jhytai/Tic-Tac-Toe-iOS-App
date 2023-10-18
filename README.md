@@ -31,7 +31,7 @@ This is our submission for the Midterm Project.
 
 ## Project Requirements ##
 
-- [ ] Callbacks
+- [x] Callbacks
 
 	- The user should be able to click at least one View that causes a callback function to be called, which produces an apparent result back to the user.
 
@@ -39,11 +39,11 @@ This is our submission for the Midterm Project.
 
 	- Important events should be logged to the output window.
 
-- [ ] Storyboard Layout
+- [x] Storyboard Layout
 
 	- The app should be designed using the Storyboard, and not other methods.
 
-- [ ] API Based User Interface
+- [x] API Based User Interface
 
 	- At least one View should be created, setup, and constrained programmatically. If you wish to code your entire app using API Based User Interface and avoid Storyboard altogether, you may do so. But only if you wish.
 
