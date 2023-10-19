@@ -47,14 +47,157 @@
                     <view key="view" contentMode="scaleToFill" id="Hbw-9p-FQv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Settings" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xye-JD-Kjt" userLabel="Settings Label">
+                                <rect key="frame" x="25" y="84" width="152.66666666666666" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TheO" translatesAutoresizingMaskIntoConstraints="NO" id="gxg-hD-4Pw" userLabel="P1 Image">
+                                <rect key="frame" x="25" y="137.66666666666666" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="OGH-6a-Yfg"/>
+                                    <constraint firstAttribute="height" constant="50" id="zJE-cN-15R"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XK-Q3-llO" userLabel="P1 Label">
+                                <rect key="frame" x="95" y="137.66666666666666" width="124" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ahF-GJ-r0y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-W2-zMg" userLabel="P1 Text Field">
+                                <rect key="frame" x="25" y="207.66666666666666" width="250" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="l5m-kH-kXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="p1TextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingDidEnd" id="7jH-gT-MTm"/>
+                                </connections>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TheX" translatesAutoresizingMaskIntoConstraints="NO" id="7k4-rN-0Vz" userLabel="P2 Image">
+                                <rect key="frame" x="25" y="261.66666666666669" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ekh-wY-WYd"/>
+                                    <constraint firstAttribute="height" constant="50" id="pUd-vG-JhD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE7-Q2-vQC" userLabel="P2 Label">
+                                <rect key="frame" x="95" y="261.66666666666669" width="126.66666666666669" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EMf-JA-sk7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="17T-WV-Kcv" userLabel="P2 Text Field">
+                                <rect key="frame" x="25" y="331.66666666666669" width="250" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="YRW-Ky-dGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="p2TextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingDidEnd" id="Xtl-AK-2XA"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many rounds?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qn-nN-r4Z" userLabel="Rounds Label">
+                                <rect key="frame" x="25" y="385.66666666666669" width="167.66666666666666" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="number of rounds" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taG-yf-S4o" userLabel="Rounds Text Field">
+                                <rect key="frame" x="25" y="429.66666666666669" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="FED-9o-DVg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="roundsTextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingDidEnd" id="EEx-TN-Mbx"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVQ-20-WHP" userLabel="Play Button">
+                                <rect key="frame" x="25" y="483.66666666666669" width="100" height="38.000000000000057"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="jy9-nz-4Jh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play!!!">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="L4u-Jo-pXd" eventType="touchUpInside" id="70m-lI-5bg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eAn-am-uUH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xye-JD-Kjt" secondAttribute="trailing" constant="25" id="1OH-fL-r6H"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2qn-nN-r4Z" secondAttribute="trailing" constant="25" id="1xg-OC-n4R"/>
+                            <constraint firstItem="gxg-hD-4Pw" firstAttribute="top" secondItem="Xye-JD-Kjt" secondAttribute="bottom" constant="25" id="IGa-VB-yNH"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7XK-Q3-llO" secondAttribute="trailing" constant="25" id="JGD-S9-ubF"/>
+                            <constraint firstItem="2qn-nN-r4Z" firstAttribute="top" secondItem="17T-WV-Kcv" secondAttribute="bottom" constant="20" id="KVm-bU-gKE"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uVQ-20-WHP" secondAttribute="trailing" constant="25" id="KcI-yq-IRO"/>
+                            <constraint firstItem="d6n-W2-zMg" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="LMW-mG-ZpE"/>
+                            <constraint firstItem="17T-WV-Kcv" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="M7n-5b-xAQ"/>
+                            <constraint firstItem="OE7-Q2-vQC" firstAttribute="top" secondItem="d6n-W2-zMg" secondAttribute="bottom" constant="20" id="OR8-qU-Z8R"/>
+                            <constraint firstItem="uVQ-20-WHP" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="Q6N-1i-FhP"/>
+                            <constraint firstItem="7XK-Q3-llO" firstAttribute="leading" secondItem="gxg-hD-4Pw" secondAttribute="trailing" constant="20" id="ZG2-pz-1mk"/>
+                            <constraint firstItem="7k4-rN-0Vz" firstAttribute="top" secondItem="d6n-W2-zMg" secondAttribute="bottom" constant="20" id="ZG6-o3-UP4"/>
+                            <constraint firstItem="Xye-JD-Kjt" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="bcE-aI-sQC"/>
+                            <constraint firstItem="d6n-W2-zMg" firstAttribute="top" secondItem="7XK-Q3-llO" secondAttribute="bottom" constant="20" id="dIn-5k-Q9m"/>
+                            <constraint firstItem="Xye-JD-Kjt" firstAttribute="top" secondItem="eAn-am-uUH" secondAttribute="top" constant="25" id="dJ5-Q2-Avm"/>
+                            <constraint firstItem="taG-yf-S4o" firstAttribute="top" secondItem="2qn-nN-r4Z" secondAttribute="bottom" constant="20" id="ehx-sA-H6R"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="17T-WV-Kcv" secondAttribute="trailing" constant="25" id="fFh-vV-aR7"/>
+                            <constraint firstItem="gxg-hD-4Pw" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="hSn-tV-yhk"/>
+                            <constraint firstItem="OE7-Q2-vQC" firstAttribute="leading" secondItem="7k4-rN-0Vz" secondAttribute="trailing" constant="20" id="kDA-yB-FjX"/>
+                            <constraint firstItem="17T-WV-Kcv" firstAttribute="top" secondItem="OE7-Q2-vQC" secondAttribute="bottom" constant="20" id="kKo-67-kBK"/>
+                            <constraint firstItem="uVQ-20-WHP" firstAttribute="top" secondItem="taG-yf-S4o" secondAttribute="bottom" constant="20" id="kLv-MT-jma"/>
+                            <constraint firstItem="7k4-rN-0Vz" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="ndd-Hk-Ecr"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d6n-W2-zMg" secondAttribute="trailing" constant="25" id="pST-2a-w90"/>
+                            <constraint firstItem="7XK-Q3-llO" firstAttribute="top" secondItem="Xye-JD-Kjt" secondAttribute="bottom" constant="25" id="plC-GF-rvT"/>
+                            <constraint firstItem="2qn-nN-r4Z" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="rkC-5U-VJh"/>
+                            <constraint firstItem="taG-yf-S4o" firstAttribute="leading" secondItem="eAn-am-uUH" secondAttribute="leading" constant="25" id="s0v-n5-pE6"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OE7-Q2-vQC" secondAttribute="trailing" constant="25" id="z33-Hb-Q15"/>
+                            <constraint firstItem="eAn-am-uUH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="taG-yf-S4o" secondAttribute="trailing" constant="25" id="zAI-Gk-y14"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BDp-IZ-vDR" appends="YES" id="ROj-TL-Rw3"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="oxv-Wn-zfJ"/>
+                    <connections>
+                        <outlet property="p1Image" destination="gxg-hD-4Pw" id="u0X-ad-SAP"/>
+                        <outlet property="p1Label" destination="7XK-Q3-llO" id="L47-Ag-zOU"/>
+                        <outlet property="p1TextField" destination="d6n-W2-zMg" id="pzh-xl-Q2R"/>
+                        <outlet property="p2Image" destination="7k4-rN-0Vz" id="f0q-2V-h4C"/>
+                        <outlet property="p2Label" destination="OE7-Q2-vQC" id="NdH-nA-gtX"/>
+                        <outlet property="p2TextField" destination="17T-WV-Kcv" id="s0o-zg-apM"/>
+                        <outlet property="playButton" destination="uVQ-20-WHP" id="7NS-5d-ALe"/>
+                        <outlet property="roundsLabel" destination="2qn-nN-r4Z" id="Arj-mA-FLf"/>
+                        <outlet property="roundsTextField" destination="taG-yf-S4o" id="hNX-VC-J4i"/>
+                        <outlet property="settingsLabel" destination="Xye-JD-Kjt" id="TXu-39-ezS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUO-lT-1g3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BDp-IZ-vDR">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="L4u-Jo-pXd" id="DyL-K1-WEj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1868" y="-2"/>
+            <point key="canvasLocation" x="1867.9389312977098" y="-2.1126760563380285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dfh-FW-Lpu">
@@ -62,6 +205,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="THi-JN-ti8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7lz-2x-xlY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -77,6 +221,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TheO" width="211" height="211"/>
+        <image name="TheX" width="205.66667175292969" height="205"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
