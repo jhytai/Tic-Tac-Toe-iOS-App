@@ -29,18 +29,21 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         }
     
+    // Function to control and validate changes to Rounds Text Input Field
     func textField(
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool
     {
+        // Define character set that includes only numeric characters
         let allowedCharacterSet = CharacterSet(charactersIn: "0123456789")
         
+        // Check if the replacement string contains only the allowed characters
         let characterSet = CharacterSet(charactersIn: string)
         
+        // If only numeric digits, accept. Else, reject the replacement string
         return allowedCharacterSet.isSuperset(of: characterSet)
-        
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer)
