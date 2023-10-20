@@ -34,15 +34,16 @@ class GameViewController: UIViewController
     public var score1 : Int = 0 { didSet { self.p1ScoreLabel?.text = "Score: \(score1)" } }
     public var score2 : Int = 0 { didSet { self.p2ScoreLabel?.text = "Score: \(score2)" } }
 
-    public var s1 : Int = 0
-    public var s2 : Int = 0
-    public var s3 : Int = 0
-    public var s4 : Int = 0
-    public var s5 : Int = 0
-    public var s6 : Int = 0
-    public var s7 : Int = 0
-    public var s8 : Int = 0
-    public var s9 : Int = 0
+    public var turn : Int = 1
+    public var s1   : Int = 0
+    public var s2   : Int = 0
+    public var s3   : Int = 0
+    public var s4   : Int = 0
+    public var s5   : Int = 0
+    public var s6   : Int = 0
+    public var s7   : Int = 0
+    public var s8   : Int = 0
+    public var s9   : Int = 0
 
     override func viewDidLoad()
         {
@@ -67,7 +68,8 @@ class GameViewController: UIViewController
         // Initialize P1 Name Label (p1NameLabel)
         self.p1NameLabel = UILabel()
         self.p1NameLabel.text = "-> Player 1: \(name1)"
-        self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+        self.p1NameLabel.textColor = .blue
+        self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         self.p1NameLabel.numberOfLines = 0
         self.p1NameLabel.lineBreakMode = .byWordWrapping
         self.p1NameLabel.textAlignment = .center
@@ -179,6 +181,7 @@ class GameViewController: UIViewController
         // Initialize P2 Name Label (p2NameLabel)
         self.p2NameLabel = UILabel()
         self.p2NameLabel.text = "Player 2: \(name2)"
+        self.p2NameLabel.textColor = .black
         self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
         self.p2NameLabel.numberOfLines = 0
         self.p2NameLabel.lineBreakMode = .byWordWrapping
@@ -289,57 +292,403 @@ class GameViewController: UIViewController
     @objc func tappedS1(_ sender: UIButton)
         {
         print("Slot 1 tapped!")
-        // code here
+        if (s1 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s1 = 1
+            turn = 2
+            self.slot1Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 1 to Circle!")
+            }
+        else if (s1 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s1 = 2
+            turn = 1
+            self.slot1Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 1 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS2(_ sender: UIButton)
         {
         print("Slot 2 tapped!")
-        // code here
+        if (s2 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s2 = 1
+            turn = 2
+            self.slot2Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 2 to Circle!")
+            }
+        else if (s2 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s2 = 2
+            turn = 1
+            self.slot2Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 2 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS3(_ sender: UIButton)
         {
         print("Slot 3 tapped!")
-        // code here
+        if (s3 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s3 = 1
+            turn = 2
+            self.slot3Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 3 to Circle!")
+            }
+        else if (s3 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s3 = 2
+            turn = 1
+            self.slot3Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 3 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS4(_ sender: UIButton)
         {
         print("Slot 4 tapped!")
-        // code here
+        if (s4 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s4 = 1
+            turn = 2
+            self.slot4Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 4 to Circle!")
+            }
+        else if (s4 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s4 = 2
+            turn = 1
+            self.slot4Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 4 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS5(_ sender: UIButton)
         {
         print("Slot 5 tapped!")
-        // code here
+        if (s5 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s5 = 1
+            turn = 2
+            self.slot5Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 5 to Circle!")
+            }
+        else if (s5 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s5 = 2
+            turn = 1
+            self.slot5Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 5 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS6(_ sender: UIButton)
         {
         print("Slot 6 tapped!")
-        // code here
+        if (s6 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s6 = 1
+            turn = 2
+            self.slot6Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 6 to Circle!")
+            }
+        else if (s6 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s6 = 2
+            turn = 1
+            self.slot6Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 6 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS7(_ sender: UIButton)
         {
         print("Slot 7 tapped!")
-        // code here
+        if (s7 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s7 = 1
+            turn = 2
+            self.slot7Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 7 to Circle!")
+            }
+        else if (s7 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s7 = 2
+            turn = 1
+            self.slot7Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 7 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS8(_ sender: UIButton)
         {
         print("Slot 8 tapped!")
-        // code here
+        if (s8 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s8 = 1
+            turn = 2
+            self.slot8Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 8 to Circle!")
+            }
+        else if (s8 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s8 = 2
+            turn = 1
+            self.slot8Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 8 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
     @objc func tappedS9(_ sender: UIButton)
         {
         print("Slot 9 tapped!")
-        // code here
+        if (s9 == 0 && turn == 1 && roundsCount > 0)
+            {
+            s9 = 1
+            turn = 2
+            self.slot9Image.image = UIImage(named: "TheO")
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Player 1 changed Slot 9 to Circle!")
+            }
+        else if (s9 == 0 && turn == 2 && roundsCount > 0)
+            {
+            s9 = 2
+            turn = 1
+            self.slot9Image.image = UIImage(named: "TheX")
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            print("Player 2 changed Slot 9 to Cross!")
+            }
+        else
+            {
+            print("Invalid move!")
+            }
+        
+        // more code here
+        
         }
 
-    // Continue code here
+    // Function that checks for winner
+
+
+    // Function that resets the game for new round
+
 
 }
