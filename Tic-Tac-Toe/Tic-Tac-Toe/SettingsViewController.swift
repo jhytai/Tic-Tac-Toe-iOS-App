@@ -7,8 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController
-{
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var settingsLabel   : UILabel!
     @IBOutlet var p1Label         : UILabel!
     @IBOutlet var p2Label         : UILabel!
@@ -29,6 +28,20 @@ class SettingsViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         }
+    
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool
+    {
+        let allowedCharacterSet = CharacterSet(charactersIn: "0123456789")
+        
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacterSet.isSuperset(of: characterSet)
+        
+    }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer)
         {
