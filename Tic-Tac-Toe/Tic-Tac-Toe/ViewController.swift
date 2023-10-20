@@ -10,9 +10,9 @@ import UIKit
 // View Controller for Landing Page
 class ViewController: UIViewController
 {
-    var welcomeLabel: UILabel!
-    var logoImageView: UIImageView!
-    var getStartedButton: UIButton!
+    private var welcomeLabel     : UILabel!
+    private var logoImageView    : UIImageView!
+    private var getStartedButton : UIButton!
 
     override func viewDidLoad()
         {
