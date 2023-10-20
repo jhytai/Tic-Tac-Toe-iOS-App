@@ -19,7 +19,7 @@ This is our submission for the Midterm Project.
 
 ## Notes ##
 
-* Developed with Xcode 15.0 (based on iPhone 15 Pro - iOS 17.0)
+* Developed with Xcode 15.0.1 (based on iOS 17.0.1 - iPhone 15 Pro - iPad 10th gen)
 
 ## Development Milestones ##
 
@@ -28,6 +28,7 @@ This is our submission for the Midterm Project.
 - [x] Settings Page (SettingsViewController.swift)
 - [ ] Game Page (GameViewController.swift)
 - [ ] Internationalization
+- [ ] Testament Document
 
 ## Project Requirements ##
 
@@ -56,7 +57,7 @@ This is our submission for the Midterm Project.
 	- Your app must be prepared for internationalization and localized to at least two languages, and two regions. The regions must use different decimal separators or some other significant aspect that can be demonstrated in class.
 	- Example: English/US and Spanish/Spain.
 
-- [ ] Assets and Resources
+- [x] Assets and Resources
 	- Your app should have at least two distinct assets utilized within the Storyboard/scene, somewhere. The user should be able to cause at least one of the resources to change via interaction (i.e., callback).
 	- Example: UIImageView holding a custom image for your app, which changes when the user clicks some button (or when the user has changed something, somewhere).
 	- At least one asset should change/adapt based on device configuration or other qualifier.
