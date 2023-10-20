@@ -25,7 +25,7 @@ This is our submission for the Midterm Project.
 
 - [x] Landing Page (ViewController.swift)
 - [x] Tab Bar Controller
-- [ ] Settings Page (SettingsViewController.swift)
+- [x] Settings Page (SettingsViewController.swift)
 - [ ] Game Page (GameViewController.swift)
 - [ ] Internationalization
 
@@ -47,7 +47,7 @@ This is our submission for the Midterm Project.
 
 	- At least one View should be created, setup, and constrained programmatically. If you wish to code your entire app using API Based User Interface and avoid Storyboard altogether, you may do so. But only if you wish.
 
-- [ ] Text Input and Delegation
+- [x] Text Input and Delegation
 
 	- Your app must use at least two different types of software keyboards. Your app must also detect the type of the keyboard at some point and use it to filter the user’s invalid character input.
 
