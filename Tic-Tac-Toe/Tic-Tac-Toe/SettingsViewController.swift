@@ -20,9 +20,9 @@ class SettingsViewController: UIViewController
     @IBOutlet var p1Image         : UIImageView!
     @IBOutlet var p2Image         : UIImageView!
 
-    public var p1name : String = ""
-    public var p2name : String = ""
-    public var rounds : Int = 0
+    private var p1name : String = ""
+    private var p2name : String = ""
+    private var rounds : Int = 0
 
     override func viewDidLoad()
         {
@@ -67,7 +67,36 @@ class SettingsViewController: UIViewController
         {
         print("Play button tapped!")
         tabBarController?.selectedIndex = 2
-        //add code to reset game variables when this button is tapped
+        
+        // Get the existing instance of GameViewController
+        if let gameVC = tabBarController?.viewControllers?[2] as? GameViewController
+            {
+            // Reset the game parameters
+            gameVC.roundsCount = rounds
+            gameVC.name1 = p1name
+            gameVC.name2 = p2name
+            gameVC.score1 = 0
+            gameVC.score2 = 0
+            gameVC.s1 = 0
+            gameVC.s2 = 0
+            gameVC.s3 = 0
+            gameVC.s4 = 0
+            gameVC.s5 = 0
+            gameVC.s6 = 0
+            gameVC.s7 = 0
+            gameVC.s8 = 0
+            gameVC.s9 = 0
+            gameVC.slot1Image.image = UIImage(named: "TheBlank")
+            gameVC.slot2Image.image = UIImage(named: "TheBlank")
+            gameVC.slot3Image.image = UIImage(named: "TheBlank")
+            gameVC.slot4Image.image = UIImage(named: "TheBlank")
+            gameVC.slot5Image.image = UIImage(named: "TheBlank")
+            gameVC.slot6Image.image = UIImage(named: "TheBlank")
+            gameVC.slot7Image.image = UIImage(named: "TheBlank")
+            gameVC.slot8Image.image = UIImage(named: "TheBlank")
+            gameVC.slot9Image.image = UIImage(named: "TheBlank")
+            }
+        print("Game parameters reset, ready to play.")
         }
 
 }

@@ -9,23 +9,40 @@ import UIKit
 
 class GameViewController: UIViewController
 {
-    var roundsLabel  : UILabel!
-    var p1NameLabel  : UILabel!
-    var p2NameLabel  : UILabel!
-    var p1ScoreLabel : UILabel!
-    var p2ScoreLabel : UILabel!
-    var gridView     : UIView!
-    var gridImage    : UIImageView!
-    var slot1Image   : UIImageView!
-    var slot2Image   : UIImageView!
-    var slot3Image   : UIImageView!
-    var slot4Image   : UIImageView!
-    var slot5Image   : UIImageView!
-    var slot6Image   : UIImageView!
-    var slot7Image   : UIImageView!
-    var slot8Image   : UIImageView!
-    var slot9Image   : UIImageView!
-    var slotSizeMult : CGFloat = 0.27
+    private var roundsLabel  : UILabel!
+    private var p1NameLabel  : UILabel!
+    private var p2NameLabel  : UILabel!
+    private var p1ScoreLabel : UILabel!
+    private var p2ScoreLabel : UILabel!
+    private var gridView     : UIView!
+    private var gridImage    : UIImageView!
+    private var slotSizeMult : CGFloat = 0.27
+
+    public  var slot1Image   : UIImageView!
+    public  var slot2Image   : UIImageView!
+    public  var slot3Image   : UIImageView!
+    public  var slot4Image   : UIImageView!
+    public  var slot5Image   : UIImageView!
+    public  var slot6Image   : UIImageView!
+    public  var slot7Image   : UIImageView!
+    public  var slot8Image   : UIImageView!
+    public  var slot9Image   : UIImageView!
+
+    public var roundsCount : Int = 0 { didSet { self.roundsLabel?.text = "Rounds left: \(roundsCount)" } }
+    public var name1 = "???" { didSet { self.p1NameLabel?.text = "-> Player 1: \(name1)" } }
+    public var name2 = "???" { didSet { self.p2NameLabel?.text = "Player 2: \(name2)" } }
+    public var score1 : Int = 0 { didSet { self.p1ScoreLabel?.text = "Score: \(score1)" } }
+    public var score2 : Int = 0 { didSet { self.p2ScoreLabel?.text = "Score: \(score2)" } }
+
+    public var s1 : Int = 0
+    public var s2 : Int = 0
+    public var s3 : Int = 0
+    public var s4 : Int = 0
+    public var s5 : Int = 0
+    public var s6 : Int = 0
+    public var s7 : Int = 0
+    public var s8 : Int = 0
+    public var s9 : Int = 0
 
     override func viewDidLoad()
         {
@@ -34,12 +51,12 @@ class GameViewController: UIViewController
         }
 
     override func loadView()
-    {
+        {
         super.loadView()
         
         // Initialize Rounds Label (roundsLabel)
         self.roundsLabel = UILabel()
-        self.roundsLabel.text = "Rounds left: ?"
+        self.roundsLabel.text = "Rounds left: \(roundsCount)"
         self.roundsLabel.font = UIFont.systemFont(ofSize: 20)
         self.roundsLabel.numberOfLines = 0
         self.roundsLabel.lineBreakMode = .byWordWrapping
@@ -49,7 +66,7 @@ class GameViewController: UIViewController
         
         // Initialize P1 Name Label (p1NameLabel)
         self.p1NameLabel = UILabel()
-        self.p1NameLabel.text = "-> Player 1: ???"
+        self.p1NameLabel.text = "-> Player 1: \(name1)"
         self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
         self.p1NameLabel.numberOfLines = 0
         self.p1NameLabel.lineBreakMode = .byWordWrapping
@@ -59,7 +76,7 @@ class GameViewController: UIViewController
         
         // Initialize P1 Score Label (p1ScoreLabel)
         self.p1ScoreLabel = UILabel()
-        self.p1ScoreLabel.text = "Score: ?"
+        self.p1ScoreLabel.text = "Score: \(score1)"
         self.p1ScoreLabel.font = UIFont.systemFont(ofSize: 20)
         self.p1ScoreLabel.numberOfLines = 0
         self.p1ScoreLabel.lineBreakMode = .byWordWrapping
@@ -78,7 +95,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(gridImage)
         
         // Initialize Slot 1 Image (slot1Image)
-        self.slot1Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot1Image = UIImageView(image: UIImage(named: "TheO"))
         self.slot1Image.isUserInteractionEnabled = true
         let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(tappedS1(_:)))
         self.slot1Image.addGestureRecognizer(tapGestureRecognizer1)
@@ -86,7 +103,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot1Image)
         
         // Initialize Slot 2 Image (slot2Image)
-        self.slot2Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot2Image = UIImageView(image: UIImage(named: "TheX"))
         self.slot2Image.isUserInteractionEnabled = true
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(tappedS2(_:)))
         self.slot2Image.addGestureRecognizer(tapGestureRecognizer2)
@@ -94,7 +111,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot2Image)
         
         // Initialize Slot 3 Image (slot3Image)
-        self.slot3Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot3Image = UIImageView(image: UIImage(named: "TheO"))
         self.slot3Image.isUserInteractionEnabled = true
         let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(tappedS3(_:)))
         self.slot3Image.addGestureRecognizer(tapGestureRecognizer3)
@@ -102,7 +119,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot3Image)
         
         // Initialize Slot 4 Image (slot4Image)
-        self.slot4Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot4Image = UIImageView(image: UIImage(named: "TheX"))
         self.slot4Image.isUserInteractionEnabled = true
         let tapGestureRecognizer4 = UITapGestureRecognizer(target: self, action: #selector(tappedS4(_:)))
         self.slot4Image.addGestureRecognizer(tapGestureRecognizer4)
@@ -110,7 +127,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot4Image)
         
         // Initialize Slot 5 Image (slot5Image)
-        self.slot5Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot5Image = UIImageView(image: UIImage(named: "TheO"))
         self.slot5Image.isUserInteractionEnabled = true
         let tapGestureRecognizer5 = UITapGestureRecognizer(target: self, action: #selector(tappedS5(_:)))
         self.slot5Image.addGestureRecognizer(tapGestureRecognizer5)
@@ -118,7 +135,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot5Image)
         
         // Initialize Slot 6 Image (slot6Image)
-        self.slot6Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot6Image = UIImageView(image: UIImage(named: "TheX"))
         self.slot6Image.isUserInteractionEnabled = true
         let tapGestureRecognizer6 = UITapGestureRecognizer(target: self, action: #selector(tappedS6(_:)))
         self.slot6Image.addGestureRecognizer(tapGestureRecognizer6)
@@ -126,7 +143,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot6Image)
         
         // Initialize Slot 7 Image (slot7Image)
-        self.slot7Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot7Image = UIImageView(image: UIImage(named: "TheO"))
         self.slot7Image.isUserInteractionEnabled = true
         let tapGestureRecognizer7 = UITapGestureRecognizer(target: self, action: #selector(tappedS7(_:)))
         self.slot7Image.addGestureRecognizer(tapGestureRecognizer7)
@@ -134,7 +151,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot7Image)
         
         // Initialize Slot 8 Image (slot8Image)
-        self.slot8Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot8Image = UIImageView(image: UIImage(named: "TheX"))
         self.slot8Image.isUserInteractionEnabled = true
         let tapGestureRecognizer8 = UITapGestureRecognizer(target: self, action: #selector(tappedS8(_:)))
         self.slot8Image.addGestureRecognizer(tapGestureRecognizer8)
@@ -142,7 +159,7 @@ class GameViewController: UIViewController
         self.gridView.addSubview(slot8Image)
         
         // Initialize Slot 9 Image (slot9Image)
-        self.slot9Image = UIImageView(image: UIImage(named: "TheBlank"))
+        self.slot9Image = UIImageView(image: UIImage(named: "TheO"))
         self.slot9Image.isUserInteractionEnabled = true
         let tapGestureRecognizer9 = UITapGestureRecognizer(target: self, action: #selector(tappedS9(_:)))
         self.slot9Image.addGestureRecognizer(tapGestureRecognizer9)
@@ -151,7 +168,7 @@ class GameViewController: UIViewController
         
         // Initialize P2 Score Label (p2ScoreLabel)
         self.p2ScoreLabel = UILabel()
-        self.p2ScoreLabel.text = "Score: ?"
+        self.p2ScoreLabel.text = "Score: \(score2)"
         self.p2ScoreLabel.font = UIFont.systemFont(ofSize: 20)
         self.p2ScoreLabel.numberOfLines = 0
         self.p2ScoreLabel.lineBreakMode = .byWordWrapping
@@ -161,7 +178,7 @@ class GameViewController: UIViewController
         
         // Initialize P2 Name Label (p2NameLabel)
         self.p2NameLabel = UILabel()
-        self.p2NameLabel.text = "Player 2: ???"
+        self.p2NameLabel.text = "Player 2: \(name2)"
         self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
         self.p2NameLabel.numberOfLines = 0
         self.p2NameLabel.lineBreakMode = .byWordWrapping
@@ -267,7 +284,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
             self.p2NameLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
             ])
-    }
+        }
 
     @objc func tappedS1(_ sender: UIButton)
         {
@@ -323,6 +340,6 @@ class GameViewController: UIViewController
         // code here
         }
 
-
+    // Continue code here
 
 }
