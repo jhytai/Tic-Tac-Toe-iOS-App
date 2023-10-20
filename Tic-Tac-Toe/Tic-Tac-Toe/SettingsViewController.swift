@@ -9,20 +9,20 @@ import UIKit
 
 class SettingsViewController: UIViewController
 {
-    @IBOutlet var settingsLabel: UILabel!
-    @IBOutlet var p1Label: UILabel!
-    @IBOutlet var p2Label: UILabel!
-    @IBOutlet var roundsLabel: UILabel!
-    @IBOutlet var p1TextField: UITextField!
-    @IBOutlet var p2TextField: UITextField!
-    @IBOutlet var roundsTextField: UITextField!
-    @IBOutlet var playButton: UIButton!
-    @IBOutlet var p1Image: UIImageView!
-    @IBOutlet var p2Image: UIImageView!
+    @IBOutlet var settingsLabel   : UILabel!
+    @IBOutlet var p1Label         : UILabel!
+    @IBOutlet var p2Label         : UILabel!
+    @IBOutlet var roundsLabel     : UILabel!
+    @IBOutlet var p1TextField     : UITextField!
+    @IBOutlet var p2TextField     : UITextField!
+    @IBOutlet var roundsTextField : UITextField!
+    @IBOutlet var playButton      : UIButton!
+    @IBOutlet var p1Image         : UIImageView!
+    @IBOutlet var p2Image         : UIImageView!
 
-    var p1name: String = ""
-    var p2name: String = ""
-    var rounds: Int = 0
+    public var p1name : String = ""
+    public var p2name : String = ""
+    public var rounds : Int = 0
 
     override func viewDidLoad()
         {
