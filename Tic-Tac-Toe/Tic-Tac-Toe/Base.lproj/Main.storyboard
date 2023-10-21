@@ -76,7 +76,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="l5m-kH-kXb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                 <connections>
                                     <action selector="p1TextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingChanged" id="Ww7-sI-3uD"/>
                                 </connections>
@@ -103,7 +103,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="YRW-Ky-dGA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                 <connections>
                                     <action selector="p2TextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingChanged" id="cyh-dh-LYp"/>
                                 </connections>

@@ -26,7 +26,7 @@ class ViewController: UIViewController
         
         // Initialize Welcome Label
         self.welcomeLabel = UILabel()
-        self.welcomeLabel.text = "The Tic Tac Toe Game"
+        self.welcomeLabel.text = NSLocalizedString("The Tic Tac Toe Game", comment: "Home page title")
         self.welcomeLabel.font = UIFont.systemFont(ofSize: 40)
         self.welcomeLabel.numberOfLines = 0
         self.welcomeLabel.lineBreakMode = .byWordWrapping
@@ -41,7 +41,7 @@ class ViewController: UIViewController
         
         // Initialize Get Started Button
         self.getStartedButton = UIButton(type: .system)
-        self.getStartedButton.setTitle("Get Started", for: .normal)
+        self.getStartedButton.setTitle(NSLocalizedString("Get Started", comment: "Get Startes button label"), for: .normal)
         self.getStartedButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         self.getStartedButton.addTarget(self, action: #selector(getStartedButtonTapped(_:)), for: .touchUpInside)
         self.getStartedButton.translatesAutoresizingMaskIntoConstraints = false
