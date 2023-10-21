@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 // View Controller for Landing Page
 class ViewController: UIViewController
@@ -13,11 +14,15 @@ class ViewController: UIViewController
     private var welcomeLabel     : UILabel!
     private var logoImageView    : UIImageView!
     private var getStartedButton : UIButton!
+    private var audioPlayer      : AVAudioPlayer!
 
     override func viewDidLoad()
         {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tabBarController?.selectedIndex = 1
+        tabBarController?.selectedIndex = 2
+        tabBarController?.selectedIndex = 0
         }
 
     override func loadView()
@@ -72,6 +77,19 @@ class ViewController: UIViewController
         {
         print("Get Started button tapped!")
         tabBarController?.selectedIndex = 1
+        
+        if let audioPath = Bundle.main.path(forResource: "Banana_Slip", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Banana_Slip sound.") }
+            }
         }
 
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var settingsLabel   : UILabel!
@@ -19,9 +20,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var p1Image         : UIImageView!
     @IBOutlet var p2Image         : UIImageView!
 
-    private var p1name : String = ""
-    private var p2name : String = ""
-    private var rounds : Int = 0
+    private var p1name       : String = ""
+    private var p2name       : String = ""
+    private var rounds       : Int = 0
+    private var audioPlayer : AVAudioPlayer!
 
     override func viewDidLoad()
         {
@@ -123,6 +125,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 }
             print("Game settings accepted, parameters reseted, ready to play.")
             tabBarController?.selectedIndex = 2
+            
+            if let audioPath = Bundle.main.path(forResource: "Banana_Slip", ofType: "mp3")
+                {
+                do  {
+                    let audioURL = URL(fileURLWithPath: audioPath)
+                    try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                    self.audioPlayer.volume = 10
+                    self.audioPlayer.currentTime = 0
+                    self.audioPlayer.prepareToPlay()
+                    self.audioPlayer.play()
+                    }
+                catch { print("Failed to play Banana_Slip sound.") }
+                }
             }
         else
             {
@@ -132,6 +147,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
+            if let audioPath = Bundle.main.path(forResource: "Rooster_Crowing", ofType: "mp3")
+                {
+                do  {
+                    let audioURL = URL(fileURLWithPath: audioPath)
+                    try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                    self.audioPlayer.volume = 10
+                    self.audioPlayer.currentTime = 0
+                    self.audioPlayer.prepareToPlay()
+                    self.audioPlayer.play()
+                    }
+                catch { print("Failed to play Rooster_Crowing sound.") }
+                }
             }
         }
 

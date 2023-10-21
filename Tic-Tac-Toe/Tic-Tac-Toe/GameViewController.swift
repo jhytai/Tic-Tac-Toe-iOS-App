@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class GameViewController: UIViewController
 {
@@ -17,6 +18,7 @@ class GameViewController: UIViewController
     private var gridView     : UIView!
     private var gridImage    : UIImageView!
     private var slotSizeMult : CGFloat = 0.27
+    private var audioPlayer : AVAudioPlayer!
 
     public  var slot1Image   : UIImageView!
     public  var slot2Image   : UIImageView!
@@ -298,6 +300,7 @@ class GameViewController: UIViewController
             s1 = 1
             turn = 2
             self.slot1Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -315,6 +318,7 @@ class GameViewController: UIViewController
             s1 = 2
             turn = 1
             self.slot1Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -341,6 +345,7 @@ class GameViewController: UIViewController
             s2 = 1
             turn = 2
             self.slot2Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -358,6 +363,7 @@ class GameViewController: UIViewController
             s2 = 2
             turn = 1
             self.slot2Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -384,6 +390,7 @@ class GameViewController: UIViewController
             s3 = 1
             turn = 2
             self.slot3Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -401,6 +408,7 @@ class GameViewController: UIViewController
             s3 = 2
             turn = 1
             self.slot3Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -427,6 +435,7 @@ class GameViewController: UIViewController
             s4 = 1
             turn = 2
             self.slot4Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -444,6 +453,7 @@ class GameViewController: UIViewController
             s4 = 2
             turn = 1
             self.slot4Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -470,6 +480,7 @@ class GameViewController: UIViewController
             s5 = 1
             turn = 2
             self.slot5Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -487,6 +498,7 @@ class GameViewController: UIViewController
             s5 = 2
             turn = 1
             self.slot5Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -513,6 +525,7 @@ class GameViewController: UIViewController
             s6 = 1
             turn = 2
             self.slot6Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -530,6 +543,7 @@ class GameViewController: UIViewController
             s6 = 2
             turn = 1
             self.slot6Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -556,6 +570,7 @@ class GameViewController: UIViewController
             s7 = 1
             turn = 2
             self.slot7Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -573,6 +588,7 @@ class GameViewController: UIViewController
             s7 = 2
             turn = 1
             self.slot7Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -599,6 +615,7 @@ class GameViewController: UIViewController
             s8 = 1
             turn = 2
             self.slot8Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -616,6 +633,7 @@ class GameViewController: UIViewController
             s8 = 2
             turn = 1
             self.slot8Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -642,6 +660,7 @@ class GameViewController: UIViewController
             s9 = 1
             turn = 2
             self.slot9Image.image = UIImage(named: "TheO")
+            playSoundShot1()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1)")
             self.p1NameLabel.textColor = .black
@@ -659,6 +678,7 @@ class GameViewController: UIViewController
             s9 = 2
             turn = 1
             self.slot9Image.image = UIImage(named: "TheX")
+            playSoundShot2()
             
             self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2)")
             self.p1NameLabel.textColor = .blue
@@ -745,6 +765,7 @@ class GameViewController: UIViewController
                     preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
                 self.present(alert, animated: true, completion: nil)
+                playSoundApplause()
                 }
             else
                 {
@@ -764,6 +785,7 @@ class GameViewController: UIViewController
                     preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
                 self.present(alert, animated: true, completion: nil)
+                playSoundApplause()
                 }
             else
                 {
@@ -782,6 +804,7 @@ class GameViewController: UIViewController
                     preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
                 self.present(alert, animated: true, completion: nil)
+                playSoundSadTrombone()
                 }
             else
                 {
@@ -802,6 +825,7 @@ class GameViewController: UIViewController
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            playSoundTada()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Winner)", comment: "Game Ended's player 1 name label (v1)")
             self.p1NameLabel.textColor = .green
@@ -819,6 +843,7 @@ class GameViewController: UIViewController
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            playSoundTada()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Loser)", comment: "Game Ended's player 1 name label (v2)")
             self.p1NameLabel.textColor = .orange
@@ -836,6 +861,7 @@ class GameViewController: UIViewController
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            playSoundSadTrombone()
             
             self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Draw)", comment: "Game Ended's player 1 name label (v3)")
             self.p1NameLabel.textColor = .gray
@@ -897,6 +923,86 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             }
         print("Game parameters reseted for a new round.")
+        }
+
+    func playSoundShot1 ()
+        {
+        if let audioPath = Bundle.main.path(forResource: "Shot1", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Shot1 sound.") }
+            }
+        }
+
+    func playSoundShot2 ()
+        {
+        if let audioPath = Bundle.main.path(forResource: "Shot2", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Shot2 sound.") }
+            }
+        }
+
+    func playSoundApplause ()
+        {
+        if let audioPath = Bundle.main.path(forResource: "Short_Applause", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Short_Applause sound.") }
+            }
+        }
+
+    func playSoundSadTrombone ()
+        {
+        if let audioPath = Bundle.main.path(forResource: "Sad_Trombone", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Sad_Trombone sound.") }
+            }
+        }
+
+    func playSoundTada ()
+        {
+        if let audioPath = Bundle.main.path(forResource: "Ta_Da", ofType: "mp3")
+            {
+            do  {
+                let audioURL = URL(fileURLWithPath: audioPath)
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioURL)
+                self.audioPlayer.volume = 10
+                self.audioPlayer.currentTime = 0
+                self.audioPlayer.prepareToPlay()
+                self.audioPlayer.play()
+                }
+            catch { print("Failed to play Ta_Da sound.") }
+            }
         }
 
 }
