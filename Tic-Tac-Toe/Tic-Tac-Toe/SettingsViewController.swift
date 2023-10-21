@@ -94,6 +94,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 gameVC.name2 = p2name
                 gameVC.score1 = 0
                 gameVC.score2 = 0
+                gameVC.whoStarted = 1
                 gameVC.turn = 1
                 gameVC.s1 = 0
                 gameVC.s2 = 0
@@ -113,6 +114,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 gameVC.slot7Image.image = UIImage(named: "TheBlank")
                 gameVC.slot8Image.image = UIImage(named: "TheBlank")
                 gameVC.slot9Image.image = UIImage(named: "TheBlank")
+                gameVC.p1NameLabel.text = "-> Player 1: \(p1name)"
+                gameVC.p1NameLabel.textColor = .blue
+                gameVC.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+                gameVC.p2NameLabel.text = "Player 2: \(p2name)"
+                gameVC.p2NameLabel.textColor = .black
+                gameVC.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
                 }
             print("Game settings accepted, parameters reseted, ready to play.")
             tabBarController?.selectedIndex = 2
@@ -120,7 +127,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         else
             {
             print("Game settings rejected.")
-            let alert = UIAlertController(title: "Game settings rejected.", message: "Please re-enter valid settings", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Game settings rejected.", message: "Please re-enter valid settings.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             }

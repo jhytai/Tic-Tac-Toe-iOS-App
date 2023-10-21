@@ -10,8 +10,8 @@ import UIKit
 class GameViewController: UIViewController
 {
     private var roundsLabel  : UILabel!
-    private var p1NameLabel  : UILabel!
-    private var p2NameLabel  : UILabel!
+    public  var p1NameLabel  : UILabel!
+    public  var p2NameLabel  : UILabel!
     private var p1ScoreLabel : UILabel!
     private var p2ScoreLabel : UILabel!
     private var gridView     : UIView!
@@ -34,16 +34,17 @@ class GameViewController: UIViewController
     public var score1 : Int = 0 { didSet { self.p1ScoreLabel?.text = "Score: \(score1)" } }
     public var score2 : Int = 0 { didSet { self.p2ScoreLabel?.text = "Score: \(score2)" } }
 
-    public var turn : Int = 1
-    public var s1   : Int = 0
-    public var s2   : Int = 0
-    public var s3   : Int = 0
-    public var s4   : Int = 0
-    public var s5   : Int = 0
-    public var s6   : Int = 0
-    public var s7   : Int = 0
-    public var s8   : Int = 0
-    public var s9   : Int = 0
+    public var whoStarted : Int = 1
+    public var turn       : Int = 1
+    public var s1         : Int = 0
+    public var s2         : Int = 0
+    public var s3         : Int = 0
+    public var s4         : Int = 0
+    public var s5         : Int = 0
+    public var s6         : Int = 0
+    public var s7         : Int = 0
+    public var s8         : Int = 0
+    public var s9         : Int = 0
 
     override func viewDidLoad()
         {
@@ -307,6 +308,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 1 to Circle!")
+            checkForWinner()
             }
         else if (s1 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -323,14 +325,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 1 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS2(_ sender: UIButton)
@@ -351,6 +351,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 2 to Circle!")
+            checkForWinner()
             }
         else if (s2 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -367,14 +368,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 2 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS3(_ sender: UIButton)
@@ -395,6 +394,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 3 to Circle!")
+            checkForWinner()
             }
         else if (s3 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -411,14 +411,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 3 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS4(_ sender: UIButton)
@@ -439,6 +437,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 4 to Circle!")
+            checkForWinner()
             }
         else if (s4 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -455,14 +454,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 4 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS5(_ sender: UIButton)
@@ -483,6 +480,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 5 to Circle!")
+            checkForWinner()
             }
         else if (s5 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -499,14 +497,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 5 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS6(_ sender: UIButton)
@@ -527,6 +523,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 6 to Circle!")
+            checkForWinner()
             }
         else if (s6 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -543,14 +540,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 6 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS7(_ sender: UIButton)
@@ -571,6 +566,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 7 to Circle!")
+            checkForWinner()
             }
         else if (s7 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -587,14 +583,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 7 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS8(_ sender: UIButton)
@@ -615,6 +609,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 8 to Circle!")
+            checkForWinner()
             }
         else if (s8 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -631,14 +626,12 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 8 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     @objc func tappedS9(_ sender: UIButton)
@@ -659,6 +652,7 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
             print("Player 1 changed Slot 9 to Circle!")
+            checkForWinner()
             }
         else if (s9 == 0 && turn == 2 && roundsCount > 0)
             {
@@ -675,20 +669,222 @@ class GameViewController: UIViewController
             self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
             
             print("Player 2 changed Slot 9 to Cross!")
+            checkForWinner()
             }
         else
             {
             print("Invalid move!")
             }
-        
-        // more code here
-        
         }
 
     // Function that checks for winner
+    func checkForWinner()
+        {
+        print("Function called: checkForWinner()")
+        var whoWonTheRound : Int = 0
+        
+        if (s1 >= 1 && s1 <= 2 && s1 == s2 && s2 == s3)
+            {
+            // Round Winning case 1 out of 8
+            whoWonTheRound = s1
+            }
+        else if (s1 >= 1 && s1 <= 2 && s1 == s4 && s4 == s7)
+            {
+            // Round Winning case 2 out of 8
+            whoWonTheRound = s1
+            }
+        else if (s1 >= 1 && s1 <= 2 && s1 == s5 && s5 == s9)
+            {
+            // Round Winning case 3 out of 8
+            whoWonTheRound = s1
+            }
+        else if (s3 >= 1 && s3 <= 2 && s3 == s5 && s5 == s7)
+            {
+            // Round Winning case 4 out of 8
+            whoWonTheRound = s3
+            }
+        else if (s9 >= 1 && s9 <= 2 && s9 == s8 && s8 == s7)
+            {
+            // Round Winning case 5 out of 8
+            whoWonTheRound = s9
+            }
+        else if (s9 >= 1 && s9 <= 2 && s9 == s6 && s6 == s3)
+            {
+            // Round Winning case 6 out of 8
+            whoWonTheRound = s9
+            }
+        else if (s5 >= 1 && s5 <= 2 && s5 == s6 && s6 == s4)
+            {
+            // Round Winning case 7 out of 8
+            whoWonTheRound = s5
+            }
+        else if (s5 >= 1 && s5 <= 2 && s5 == s2 && s2 == s8)
+            {
+            // Round Winning case 8 out of 8
+            whoWonTheRound = s5
+            }
+        else if (s1 > 0 && s2 > 0 && s3 > 0 && s4 > 0 && s5 > 0 && s6 > 0 && s7 > 0 && s8 > 0 && s9 > 0)
+            {
+            // Round ended in a draw
+            whoWonTheRound = 3
+            }
+        else
+            {
+            // Round continues
+            }
+        
+        if (whoWonTheRound == 1)
+            {
+            roundsCount -= 1
+            score1 += 1
+            
+            if (roundsCount > 0)
+                {
+                let alert = UIAlertController(title: "Round ended.", message: "\(name1) won the round!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
+                self.present(alert, animated: true, completion: nil)
+                }
+            else
+                {
+                gameOverAlert()
+                }
+            print("Player 1 '\(name1)' won the round.")
+            }
+        else if (whoWonTheRound == 2)
+            {
+            roundsCount -= 1
+            score2 += 1
+            
+            if (roundsCount > 0)
+                {
+                let alert = UIAlertController(title: "Round ended.", message: "\(name2) won the round!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
+                self.present(alert, animated: true, completion: nil)
+                }
+            else
+                {
+                gameOverAlert()
+                }
+            print("Player 2 '\(name2)' won the round.")
+            }
+        else if (whoWonTheRound == 3)
+            {
+            roundsCount -= 1
+            
+            if (roundsCount > 0)
+                {
+                let alert = UIAlertController(title: "Round ended.", message: "The round ended in a draw!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
+                self.present(alert, animated: true, completion: nil)
+                }
+            else
+                {
+                gameOverAlert()
+                }
+            print("The round ended in a draw.")
+            }
+        }
 
+    // Function to display a gave over alert
+    func gameOverAlert()
+        {
+        print("Function called: gameOverAlert()")
+        if (score1 > score2)
+            {
+            let alert = UIAlertController(title: "Game ended.", message: "\(name1) won the game! To play again go back to Settings.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            self.p1NameLabel.text = "Player 1: \(name1) (Winner)"
+            self.p1NameLabel.textColor = .green
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            self.p2NameLabel.text = "Player 2: \(name2) (Loser)"
+            self.p2NameLabel.textColor = .orange
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Game ended. Player 1 '\(name1)' won the game.")
+            }
+        else if (score2 > score1)
+            {
+            let alert = UIAlertController(title: "Game ended.", message: "\(name2) won the game! To play again go back to Settings.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            self.p1NameLabel.text = "Player 1: \(name1) (Loser)"
+            self.p1NameLabel.textColor = .orange
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            self.p2NameLabel.text = "Player 2: \(name2) (Winner)"
+            self.p2NameLabel.textColor = .green
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("Game ended. Player 2 '\(name2)' won the game.")
+            }
+        else
+            {
+            let alert = UIAlertController(title: "Game ended.", message: "The game ended in a draw! To play again go back to Settings.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            self.p1NameLabel.text = "Player 1: \(name1) (Draw)"
+            self.p1NameLabel.textColor = .gray
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            self.p2NameLabel.text = "Player 2: \(name2) (Draw)"
+            self.p2NameLabel.textColor = .gray
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            print("The game ended in a draw.")
+            }
+        }
 
     // Function that resets the game for new round
-
+    func resetForNewRound()
+        {
+        print("Function called: resetForNewRound()")
+        s1 = 0
+        s2 = 0
+        s3 = 0
+        s4 = 0
+        s5 = 0
+        s6 = 0
+        s7 = 0
+        s8 = 0
+        s9 = 0
+        slot1Image.image = UIImage(named: "TheBlank")
+        slot2Image.image = UIImage(named: "TheBlank")
+        slot3Image.image = UIImage(named: "TheBlank")
+        slot4Image.image = UIImage(named: "TheBlank")
+        slot5Image.image = UIImage(named: "TheBlank")
+        slot6Image.image = UIImage(named: "TheBlank")
+        slot7Image.image = UIImage(named: "TheBlank")
+        slot8Image.image = UIImage(named: "TheBlank")
+        slot9Image.image = UIImage(named: "TheBlank")
+        if (whoStarted == 1)
+            {
+            turn = 2
+            whoStarted = 2
+            
+            self.p1NameLabel.text = "Player 1: \(name1)"
+            self.p1NameLabel.textColor = .black
+            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "-> Player 2: \(name2)"
+            self.p2NameLabel.textColor = .red
+            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            }
+        else if (whoStarted == 2)
+            {
+            turn = 1
+            whoStarted = 1
+            
+            self.p1NameLabel.text = "-> Player 1: \(name1)"
+            self.p1NameLabel.textColor = .blue
+            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            self.p2NameLabel.text = "Player 2: \(name2)"
+            self.p2NameLabel.textColor = .black
+            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            }
+        print("Game parameters reseted for a new round.")
+        }
 
 }
