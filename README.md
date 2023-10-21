@@ -26,7 +26,7 @@ This is our submission for the Midterm Project.
 - [x] Landing Page (ViewController.swift)
 - [x] Tab Bar Controller
 - [x] Settings Page (SettingsViewController.swift)
-- [ ] Game Page (GameViewController.swift)
+- [x] Game Page (GameViewController.swift)
 - [ ] Internationalization
 - [ ] Testament Document
 
@@ -36,7 +36,7 @@ This is our submission for the Midterm Project.
 
 	- The user should be able to click at least one View that causes a callback function to be called, which produces an apparent result back to the user.
 
-- [ ] Logging
+- [x] Logging
 
 	- Important events should be logged to the output window.
 
