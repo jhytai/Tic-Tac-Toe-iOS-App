@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         }
-    
+
     // Function to control and validate changes to Rounds Text Input Field
     func textField(
         _ textField: UITextField,
@@ -38,32 +38,32 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         replacementString string: String
         ) -> Bool
         {
-            let keyboardType = textField.keyboardType
+        let keyboardType = textField.keyboardType
+        
+        if  keyboardType == .numberPad {
+            // Define character set that includes only numeric characters
+            let allowedCharacterSet = CharacterSet(charactersIn: "0123456789")
             
-            if  keyboardType == .numberPad {
-                // Define character set that includes only numeric characters
-                let allowedCharacterSet = CharacterSet(charactersIn: "0123456789")
-                
-                // Check if the replacement string contains only the allowed characters
-                let characterSet = CharacterSet(charactersIn: string)
+            // Check if the replacement string contains only the allowed characters
+            let characterSet = CharacterSet(charactersIn: string)
             
             // If only numeric digits, accept. Else, reject the replacement string
-                return allowedCharacterSet.isSuperset(of: characterSet)
+            return allowedCharacterSet.isSuperset(of: characterSet)
             }
-            else if keyboardType == .namePhonePad {
-                // Define character set that includes only letter characters
-                let allowedCharacterSet = CharacterSet.letters
+        else if keyboardType == .namePhonePad {
+            // Define character set that includes only letter characters
+            let allowedCharacterSet = CharacterSet.letters
             
-                // Iterate over string to make sure it only contains letter characters
-                for c in string {
-                    if !allowedCharacterSet.isSuperset(of: CharacterSet(charactersIn: String(c))) {
-                        // Prevent input on non letter characters
-                        return false
+            // Iterate over string to make sure it only contains letter characters
+            for c in string {
+                if !allowedCharacterSet.isSuperset(of: CharacterSet(charactersIn: String(c))) {
+                    // Prevent input on non letter characters
+                    return false
                     }
                 }
             }
-    
-            return true
+        
+        return true
         }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer)
