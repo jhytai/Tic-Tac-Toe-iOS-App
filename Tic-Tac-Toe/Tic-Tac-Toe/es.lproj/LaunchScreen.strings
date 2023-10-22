@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "The Tic Tac Toe Game"; ObjectID = "aW7-nc-1CY"; */
+"aW7-nc-1CY.text" = "The Tic Tac Toe Game";
+
+/* Class = "UIButton"; configuration.title = "Get Started"; ObjectID = "cY5-pG-yiw"; */
+"cY5-pG-yiw.configuration.title" = "Get Started";
+
+/* Class = "UIButton"; normalTitle = "Get Started"; ObjectID = "cY5-pG-yiw"; */
+"cY5-pG-yiw.normalTitle" = "Get Started";

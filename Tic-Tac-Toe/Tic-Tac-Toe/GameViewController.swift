@@ -30,11 +30,11 @@ class GameViewController: UIViewController
     public  var slot8Image   : UIImageView!
     public  var slot9Image   : UIImageView!
 
-    public var roundsCount : Int = 0 { didSet { self.roundsLabel?.text = NSLocalizedString("Rounds left: \(roundsCount)", comment: "Game Page's rounds label (passed from Settings Page)") } }
-    public var name1 = "???" { didSet { self.p1NameLabel?.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Game Page's player 1 name label (passed from Settings Page)") } }
-    public var name2 = "???" { didSet { self.p2NameLabel?.text = NSLocalizedString("Player 2: \(name2)", comment: "Game Page's player 2 name label (passed from Settings Page)") } }
-    public var score1 : Int = 0 { didSet { self.p1ScoreLabel?.text = NSLocalizedString("Score: \(score1)", comment: "Game Page's player 1 score label (passed from Settings Page)") } }
-    public var score2 : Int = 0 { didSet { self.p2ScoreLabel?.text = NSLocalizedString("Score: \(score2)", comment: "Game Page's player 2 score label (passed from Settings Page)") } }
+    public var roundsCount : Int = 0 { didSet { self.roundsLabel?.text = NSLocalizedString("Rounds left: ", comment: "Game Page's rounds label (passed from Settings Page)") + String(roundsCount) } }
+    public var name1 = "???" { didSet { self.p1NameLabel?.text = NSLocalizedString("-> Player 1: ", comment: "Game Page's player 1 name label (passed from Settings Page)") + name1 } }
+    public var name2 = "???" { didSet { self.p2NameLabel?.text = NSLocalizedString("Player 2: ", comment: "Game Page's player 2 name label (passed from Settings Page)") + name2 } }
+    public var score1 : Int = 0 { didSet { self.p1ScoreLabel?.text = NSLocalizedString("Score: ", comment: "Game Page's player 1 score label (passed from Settings Page)") + String(score1) } }
+    public var score2 : Int = 0 { didSet { self.p2ScoreLabel?.text = NSLocalizedString("Score: ", comment: "Game Page's player 2 score label (passed from Settings Page)") + String(score2) } }
 
     public var whoStarted : Int = 1
     public var turn       : Int = 1
@@ -60,7 +60,7 @@ class GameViewController: UIViewController
         
         // Initialize Rounds Label (roundsLabel)
         self.roundsLabel = UILabel()
-        self.roundsLabel.text = NSLocalizedString("Rounds left: \(roundsCount)", comment: "Game Page's rounds label (loadView init)")
+        self.roundsLabel.text = NSLocalizedString("Rounds left: ", comment: "Game Page's rounds label (loadView init)") + String(roundsCount)
         self.roundsLabel.font = UIFont.systemFont(ofSize: 20)
         self.roundsLabel.numberOfLines = 0
         self.roundsLabel.lineBreakMode = .byWordWrapping
@@ -70,7 +70,7 @@ class GameViewController: UIViewController
         
         // Initialize P1 Name Label (p1NameLabel)
         self.p1NameLabel = UILabel()
-        self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Game Page's player 1 name label (loadView init)")
+        self.p1NameLabel.text = NSLocalizedString("-> Player 1: ", comment: "Game Page's player 1 name label (loadView init)") + name1
         self.p1NameLabel.textColor = .blue
         self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         self.p1NameLabel.numberOfLines = 0
@@ -81,7 +81,7 @@ class GameViewController: UIViewController
         
         // Initialize P1 Score Label (p1ScoreLabel)
         self.p1ScoreLabel = UILabel()
-        self.p1ScoreLabel.text = NSLocalizedString("Score: \(score1)", comment: "Game Page's player 1 score label (loadView init)")
+        self.p1ScoreLabel.text = NSLocalizedString("Score: ", comment: "Game Page's player 1 score label (loadView init)") + String(score1)
         self.p1ScoreLabel.font = UIFont.systemFont(ofSize: 20)
         self.p1ScoreLabel.numberOfLines = 0
         self.p1ScoreLabel.lineBreakMode = .byWordWrapping
@@ -173,7 +173,7 @@ class GameViewController: UIViewController
         
         // Initialize P2 Score Label (p2ScoreLabel)
         self.p2ScoreLabel = UILabel()
-        self.p2ScoreLabel.text = NSLocalizedString("Score: \(score2)", comment: "Game Page's player 2 score label (loadView init)")
+        self.p2ScoreLabel.text = NSLocalizedString("Score: ", comment: "Game Page's player 2 score label (loadView init)") + String(score2)
         self.p2ScoreLabel.font = UIFont.systemFont(ofSize: 20)
         self.p2ScoreLabel.numberOfLines = 0
         self.p2ScoreLabel.lineBreakMode = .byWordWrapping
@@ -183,7 +183,7 @@ class GameViewController: UIViewController
         
         // Initialize P2 Name Label (p2NameLabel)
         self.p2NameLabel = UILabel()
-        self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Game Page's player 2 name label (loadView init)")
+        self.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Game Page's player 2 name label (loadView init)") + name2
         self.p2NameLabel.textColor = .black
         self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
         self.p2NameLabel.numberOfLines = 0
@@ -302,13 +302,7 @@ class GameViewController: UIViewController
             self.slot1Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS1)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS1)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 1 to Circle!")
             checkForWinner()
@@ -320,13 +314,7 @@ class GameViewController: UIViewController
             self.slot1Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS1)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS1)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 1 to Cross!")
             checkForWinner()
@@ -347,13 +335,7 @@ class GameViewController: UIViewController
             self.slot2Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS2)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS2)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 2 to Circle!")
             checkForWinner()
@@ -365,13 +347,7 @@ class GameViewController: UIViewController
             self.slot2Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS2)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS2)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 2 to Cross!")
             checkForWinner()
@@ -392,13 +368,7 @@ class GameViewController: UIViewController
             self.slot3Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS3)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS3)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 3 to Circle!")
             checkForWinner()
@@ -410,13 +380,7 @@ class GameViewController: UIViewController
             self.slot3Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS3)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS3)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 3 to Cross!")
             checkForWinner()
@@ -437,13 +401,7 @@ class GameViewController: UIViewController
             self.slot4Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS4)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS4)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 4 to Circle!")
             checkForWinner()
@@ -455,13 +413,7 @@ class GameViewController: UIViewController
             self.slot4Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS4)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS4)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 4 to Cross!")
             checkForWinner()
@@ -482,13 +434,7 @@ class GameViewController: UIViewController
             self.slot5Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS5)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS5)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 5 to Circle!")
             checkForWinner()
@@ -500,13 +446,7 @@ class GameViewController: UIViewController
             self.slot5Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS5)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS5)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 5 to Cross!")
             checkForWinner()
@@ -527,13 +467,7 @@ class GameViewController: UIViewController
             self.slot6Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS6)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS6)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 6 to Circle!")
             checkForWinner()
@@ -545,13 +479,7 @@ class GameViewController: UIViewController
             self.slot6Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS6)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS6)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 6 to Cross!")
             checkForWinner()
@@ -572,13 +500,7 @@ class GameViewController: UIViewController
             self.slot7Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS7)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS7)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 7 to Circle!")
             checkForWinner()
@@ -590,13 +512,7 @@ class GameViewController: UIViewController
             self.slot7Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS7)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS7)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 7 to Cross!")
             checkForWinner()
@@ -617,13 +533,7 @@ class GameViewController: UIViewController
             self.slot8Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS8)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS8)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 8 to Circle!")
             checkForWinner()
@@ -635,13 +545,7 @@ class GameViewController: UIViewController
             self.slot8Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS8)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS8)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 8 to Cross!")
             checkForWinner()
@@ -662,13 +566,7 @@ class GameViewController: UIViewController
             self.slot9Image.image = UIImage(named: "TheO")
             playSoundShot1()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v1) (@tappedS9)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v1) (@tappedS9)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             
             print("Player 1 changed Slot 9 to Circle!")
             checkForWinner()
@@ -680,13 +578,7 @@ class GameViewController: UIViewController
             self.slot9Image.image = UIImage(named: "TheX")
             playSoundShot2()
             
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "Slot Tapped Action's player 1 name label (v2) (@tappedS9)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "Slot Tapped Action's player 2 name label (v2) (@tappedS9)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             
             print("Player 2 changed Slot 9 to Cross!")
             checkForWinner()
@@ -695,6 +587,30 @@ class GameViewController: UIViewController
             {
             print("Invalid move!")
             }
+        }
+
+    // Function to swap turns from P1 to P2 (visual effect only)
+    func swapP1toP2 ()
+        {
+        self.p1NameLabel.text = NSLocalizedString("Player 1: ", comment: "Slot Tapped Action's player 1 name label (v1) (@swapP1toP2)") + name1
+        self.p1NameLabel.textColor = .black
+        self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
+        
+        self.p2NameLabel.text = NSLocalizedString("-> Player 2: ", comment: "Slot Tapped Action's player 2 name label (v1) (@swapP1toP2)") + name2
+        self.p2NameLabel.textColor = .red
+        self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        }
+
+    // Function to swap turns from P2 to P1 (visual effect only)
+    func swapP2toP1 ()
+        {
+        self.p1NameLabel.text = NSLocalizedString("-> Player 1: ", comment: "Slot Tapped Action's player 1 name label (v2) (@swapP2toP1)") + name1
+        self.p1NameLabel.textColor = .blue
+        self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        self.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Slot Tapped Action's player 2 name label (v2) (@swapP2toP1)") + name2
+        self.p2NameLabel.textColor = .black
+        self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
         }
 
     // Function that checks for winner
@@ -761,7 +677,7 @@ class GameViewController: UIViewController
             if (roundsCount > 0)
                 {
                 let alert = UIAlertController(title: NSLocalizedString("Round ended.", comment: "Round Ended's Alert title text (v1)"),
-                    message: NSLocalizedString("\(name1) won the round!", comment: "Round Ended's Alert message text (v1)"),
+                    message: name1 + NSLocalizedString(" won the round!", comment: "Round Ended's Alert message text (v1)"),
                     preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
                 self.present(alert, animated: true, completion: nil)
@@ -781,7 +697,7 @@ class GameViewController: UIViewController
             if (roundsCount > 0)
                 {
                 let alert = UIAlertController(title: NSLocalizedString("Round ended.", comment: "Round Ended's Alert title text (v2)"),
-                    message: NSLocalizedString("\(name2) won the round!", comment: "Round Ended's Alert message text (v2)"),
+                    message: name2 + NSLocalizedString(" won the round!", comment: "Round Ended's Alert message text (v2)"),
                     preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in self?.resetForNewRound() }))
                 self.present(alert, animated: true, completion: nil)
@@ -821,16 +737,20 @@ class GameViewController: UIViewController
         if (score1 > score2)
             {
             let alert = UIAlertController(title: NSLocalizedString("Game ended.", comment: "Game Ended's Alert title text (v1)"),
-                message: NSLocalizedString("\(name1) won the game! To play again go back to Settings.", comment: "Game Ended's Alert message text (v1)"),
+                message: name1 + NSLocalizedString(" won the game! To play again go back to Settings.", comment: "Game Ended's Alert message text (v1)"),
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             playSoundTada()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Winner)", comment: "Game Ended's player 1 name label (v1)")
+            self.p1NameLabel.text = NSLocalizedString("Player 1: ", comment: "Game Ended's player 1 name label (v1-1)")
+                                    + name1 +
+                                    NSLocalizedString(" (Winner)", comment: "Game Ended's player 1 name label (v1-2)")
             self.p1NameLabel.textColor = .green
             self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2) (Loser)", comment: "Game Ended's player 2 name label (v1)")
+            self.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Game Ended's player 2 name label (v1-1)")
+                                    + name2 +
+                                    NSLocalizedString(" (Loser)", comment: "Game Ended's player 2 name label (v1-2)")
             self.p2NameLabel.textColor = .orange
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
@@ -839,16 +759,20 @@ class GameViewController: UIViewController
         else if (score2 > score1)
             {
             let alert = UIAlertController(title: NSLocalizedString("Game ended.", comment: "Game Ended's Alert title text (v2)"),
-                message: NSLocalizedString("\(name2) won the game! To play again go back to Settings.", comment: "Game Ended's Alert message text (v2)"),
+                message: name2 + NSLocalizedString(" won the game! To play again go back to Settings.", comment: "Game Ended's Alert message text (v2)"),
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             playSoundTada()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Loser)", comment: "Game Ended's player 1 name label (v2)")
+            self.p1NameLabel.text = NSLocalizedString("Player 1: ", comment: "Game Ended's player 1 name label (v2-1)")
+                                    + name1 +
+                                    NSLocalizedString(" (Loser)", comment: "Game Ended's player 1 name label (v2-2)")
             self.p1NameLabel.textColor = .orange
             self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2) (Winner)", comment: "Game Ended's player 2 name label (v2)")
+            self.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Game Ended's player 2 name label (v2-1)")
+                                    + name2 +
+                                    NSLocalizedString(" (Winner)", comment: "Game Ended's player 2 name label (v2-2)")
             self.p2NameLabel.textColor = .green
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
@@ -863,10 +787,14 @@ class GameViewController: UIViewController
             self.present(alert, animated: true, completion: nil)
             playSoundSadTrombone()
             
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1) (Draw)", comment: "Game Ended's player 1 name label (v3)")
+            self.p1NameLabel.text = NSLocalizedString("Player 1: ", comment: "Game Ended's player 1 name label (v3-1)")
+                                    + name1 +
+                                    NSLocalizedString(" (Draw)", comment: "Game Ended's player 1 name label (v3-2)")
             self.p1NameLabel.textColor = .gray
             self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2) (Draw)", comment: "Game Ended's player 2 name label (v3)")
+            self.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Game Ended's player 2 name label (v3-1)")
+                                    + name2 +
+                                    NSLocalizedString(" (Draw)", comment: "Game Ended's player 2 name label (v3-2)")
             self.p2NameLabel.textColor = .gray
             self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
             
@@ -900,27 +828,13 @@ class GameViewController: UIViewController
             {
             turn = 2
             whoStarted = 2
-            
-            self.p1NameLabel.text = NSLocalizedString("Player 1: \(name1)", comment: "resetForNewRound's player 1 name label (v1)")
-            self.p1NameLabel.textColor = .black
-            self.p1NameLabel.font = UIFont.systemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("-> Player 2: \(name2)", comment: "resetForNewRound's player 2 name label (v1)")
-            self.p2NameLabel.textColor = .red
-            self.p2NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            swapP1toP2()
             }
         else if (whoStarted == 2)
             {
             turn = 1
             whoStarted = 1
-            
-            self.p1NameLabel.text = NSLocalizedString("-> Player 1: \(name1)", comment: "resetForNewRound's player 1 name label (v2)")
-            self.p1NameLabel.textColor = .blue
-            self.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            self.p2NameLabel.text = NSLocalizedString("Player 2: \(name2)", comment: "resetForNewRound's player 2 name label (v2)")
-            self.p2NameLabel.textColor = .black
-            self.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
+            swapP2toP1()
             }
         print("Game parameters reseted for a new round.")
         }
