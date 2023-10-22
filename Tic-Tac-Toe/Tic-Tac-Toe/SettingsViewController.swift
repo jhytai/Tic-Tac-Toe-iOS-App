@@ -22,8 +22,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     private var p1name       : String = ""
     private var p2name       : String = ""
-    private var rounds       : Int = 0
+    private var rounds       : Float = 0
     private var audioPlayer : AVAudioPlayer!
+
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 2
+        return nf
+        }()
 
     override func viewDidLoad()
         {
@@ -32,11 +40,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
 
     // Function to control and validate changes to Rounds Text Input Field
-    func textField(
-        _ textField: UITextField,
+    func textField(_ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-        ) -> Bool
+        replacementString string: String) -> Bool
         {
         let keyboardType = textField.keyboardType
         
@@ -62,6 +68,22 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
+        else if keyboardType == .decimalPad {
+            if string.rangeOfCharacter(from: CharacterSet.letters) != nil
+                {
+                return false
+                }
+            
+            let currentLocale = Locale.current
+            let decimalSeparator = currentLocale.decimalSeparator ?? "."
+            let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+            let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
+            
+            if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil
+                {
+                return false
+                }
+            }
         
         return true
         }
@@ -71,6 +93,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.p1TextField.resignFirstResponder()
         self.p2TextField.resignFirstResponder()
         self.roundsTextField.resignFirstResponder()
+        if (roundsTextField.text != "")
+            {
+            let temp = Int(rounds)
+            roundsTextField.text = String(temp)
+            }
         print("Background tapped!")
         }
 
@@ -93,8 +120,18 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     // Callback for roundsTextField
     @IBAction func roundsTextFieldEdited(_ textField: UITextField)
         {
-        let text = textField.text ?? ""
-        rounds = Int(text) ?? 0
+        //let text = textField.text ?? ""
+        //rounds = Float(text) ?? 0
+        
+        if let text = textField.text, let number = numberFormatter.number(from: text)
+            {
+            rounds = number.floatValue
+            }
+        else
+            {
+            rounds = 0
+            }
+        
         print("Amount of rounds edited to \(rounds)")
         }
 
@@ -109,7 +146,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             if let gameVC = tabBarController?.viewControllers?[2] as? GameViewController
                 {
                 // Reset the game parameters
-                gameVC.roundsCount = rounds
+                gameVC.roundsCount = Int(rounds)
                 gameVC.name1 = p1name
                 gameVC.name2 = p2name
                 gameVC.score1 = 0
@@ -143,6 +180,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 }
             print("Game settings accepted, parameters reseted, ready to play.")
             tabBarController?.selectedIndex = 2
+            
+            if (roundsTextField.text != "")
+                {
+                let temp = Int(rounds)
+                roundsTextField.text = String(temp)
+                }
             
             if let audioPath = Bundle.main.path(forResource: "Banana_Slip", ofType: "mp3")
                 {

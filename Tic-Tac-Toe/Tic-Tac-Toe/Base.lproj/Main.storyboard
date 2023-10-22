@@ -122,7 +122,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="FED-9o-DVg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="roundsTextFieldEdited:" destination="L4u-Jo-pXd" eventType="editingChanged" id="7sq-nD-CrG"/>
                                     <outlet property="delegate" destination="L4u-Jo-pXd" id="qNy-Iy-a70"/>
