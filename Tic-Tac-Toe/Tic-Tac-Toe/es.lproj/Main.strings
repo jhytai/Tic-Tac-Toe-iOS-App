@@ -1,0 +1,45 @@
+
+/* Class = "UITextField"; placeholder = "player name"; ObjectID = "17T-WV-Kcv"; */
+"17T-WV-Kcv.placeholder" = "nombre del jugador";
+
+/* Class = "UILabel"; text = "How many rounds?"; ObjectID = "2qn-nN-r4Z"; */
+"2qn-nN-r4Z.text" = "Cuantas rondas?";
+
+/* Class = "UIViewController"; title = "Game Page"; ObjectID = "79e-p7-VT7"; */
+"79e-p7-VT7.title" = "Pagina del Juego";
+
+/* Class = "UILabel"; text = "Player 1 Name"; ObjectID = "7XK-Q3-llO"; */
+"7XK-Q3-llO.text" = "Nombre del jugador 1";
+
+/* Class = "UIViewController"; title = "Landing Page"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Pagina de Destino";
+
+/* Class = "UIViewController"; title = "Settings Page"; ObjectID = "L4u-Jo-pXd"; */
+"L4u-Jo-pXd.title" = "Pagina de Configuracion";
+
+/* Class = "UILabel"; text = "Player 2 Name"; ObjectID = "OE7-Q2-vQC"; */
+"OE7-Q2-vQC.text" = "Nombre del jugador 2";
+
+/* Class = "UILabel"; text = "Game Settings"; ObjectID = "Xye-JD-Kjt"; */
+"Xye-JD-Kjt.text" = "Configuracion del Juego";
+
+/* Class = "UITextField"; placeholder = "player name"; ObjectID = "d6n-W2-zMg"; */
+"d6n-W2-zMg.placeholder" = "nombre del jugador";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "fzK-in-2AY"; */
+"fzK-in-2AY.title" = "Casa";
+
+/* Class = "UITabBarItem"; title = "Game"; ObjectID = "o1a-hD-Hss"; */
+"o1a-hD-Hss.title" = "Juego";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "oxv-Wn-zfJ"; */
+"oxv-Wn-zfJ.title" = "Configuracion";
+
+/* Class = "UITextField"; placeholder = "number of rounds"; ObjectID = "taG-yf-S4o"; */
+"taG-yf-S4o.placeholder" = "Numero de rondas";
+
+/* Class = "UIButton"; configuration.title = "Play!!!"; ObjectID = "uVQ-20-WHP"; */
+"uVQ-20-WHP.configuration.title" = "Juega!!!";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uVQ-20-WHP"; */
+"uVQ-20-WHP.normalTitle" = "Boton";

@@ -46,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		057175332AE4B0D200D4FFEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		057175342AE4B16600D4FFEF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		303A219A2AE3947400417430 /* Banana_Slip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Banana_Slip.mp3; sourceTree = "<group>"; };
 		303A219C2AE3948300417430 /* Rooster_Crowing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rooster_Crowing.mp3; sourceTree = "<group>"; };
 		303A219E2AE3948C00417430 /* Sad_Trombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sad_Trombone.mp3; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 306599CE2AE069B800F119A3;
 			productRefGroup = 306599D82AE069B900F119A3 /* Products */;
@@ -341,6 +344,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				306599E12AE069B900F119A3 /* Base */,
+				057175332AE4B0D200D4FFEF /* en */,
+				057175342AE4B16600D4FFEF /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -424,6 +430,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
