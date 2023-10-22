@@ -39,7 +39,7 @@
 "taG-yf-S4o.placeholder" = "Numero de rondas";
 
 /* Class = "UIButton"; configuration.title = "Play!!!"; ObjectID = "uVQ-20-WHP"; */
-"uVQ-20-WHP.configuration.title" = "Juega!!!";
+"uVQ-20-WHP.configuration.title" = "Jugar!!!";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uVQ-20-WHP"; */
 "uVQ-20-WHP.normalTitle" = "Boton";
