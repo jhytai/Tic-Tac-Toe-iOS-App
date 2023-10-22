@@ -116,10 +116,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 gameVC.slot7Image.image = UIImage(named: "TheBlank")
                 gameVC.slot8Image.image = UIImage(named: "TheBlank")
                 gameVC.slot9Image.image = UIImage(named: "TheBlank")
-                gameVC.p1NameLabel.text = NSLocalizedString("-> Player 1: \(p1name)", comment: "Game Page's player 1 name label")
+                gameVC.p1NameLabel.text = NSLocalizedString("-> Player 1: \(p1name)", comment: "Settings Page's player 1 name label")
                 gameVC.p1NameLabel.textColor = .blue
                 gameVC.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-                gameVC.p2NameLabel.text = NSLocalizedString("Player 2: \(p2name)", comment: "Game Page's player 2 name label")
+                gameVC.p2NameLabel.text = NSLocalizedString("Player 2: \(p2name)", comment: "Settings Page's player 2 name label")
                 gameVC.p2NameLabel.textColor = .black
                 gameVC.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
                 }
@@ -142,8 +142,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         else
             {
             print("Game settings rejected.")
-            let alert = UIAlertController(title: NSLocalizedString("Game settings rejected.", comment: "Settings Page's Alert text"),
-                message: NSLocalizedString("Please re-enter valid settings.", comment: "Settings Page's Alert text"),
+            let alert = UIAlertController(title: NSLocalizedString("Game settings rejected.", comment: "Settings Page's Alert title text"),
+                message: NSLocalizedString("Please re-enter valid settings.", comment: "Settings Page's Alert message text"),
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)

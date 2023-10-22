@@ -46,7 +46,7 @@ class ViewController: UIViewController
         
         // Initialize Get Started Button
         self.getStartedButton = UIButton(type: .system)
-        self.getStartedButton.setTitle(NSLocalizedString("Get Started", comment: "Get Startes button label"), for: .normal)
+        self.getStartedButton.setTitle(NSLocalizedString("Get Started", comment: "Get Started button label"), for: .normal)
         self.getStartedButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         self.getStartedButton.addTarget(self, action: #selector(getStartedButtonTapped(_:)), for: .touchUpInside)
         self.getStartedButton.translatesAutoresizingMaskIntoConstraints = false
