@@ -26,7 +26,7 @@
 		306599FE2AE069BA00F119A3 /* Tic_Tac_ToeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306599FD2AE069BA00F119A3 /* Tic_Tac_ToeUITestsLaunchTests.swift */; };
 		30659A0B2AE0932F00F119A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30659A0A2AE0932F00F119A3 /* SettingsViewController.swift */; };
 		30659A0D2AE09A1C00F119A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30659A0C2AE09A1C00F119A3 /* GameViewController.swift */; };
-		30BC28E72AE4D0EC00DFFE4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30BC28E92AE4D0EC00DFFE4A /* Localizable.strings */; };
+		30BC28EE2AE4D61D00DFFE4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30BC28F02AE4D61D00DFFE4A /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,9 +76,9 @@
 		30BC28E22AE4CF1700DFFE4A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		30BC28E32AE4CF6D00DFFE4A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		30BC28E42AE4CF6D00DFFE4A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		30BC28E82AE4D0EC00DFFE4A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		30BC28EA2AE4D0EE00DFFE4A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		30BC28EB2AE4D0EE00DFFE4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30BC28EF2AE4D61D00DFFE4A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30BC28F12AE4D62100DFFE4A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		30BC28F22AE4D62200DFFE4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 		306599D92AE069B900F119A3 /* Tic-Tac-Toe */ = {
 			isa = PBXGroup;
 			children = (
-				30BC28E92AE4D0EC00DFFE4A /* Localizable.strings */,
+				30BC28F02AE4D61D00DFFE4A /* Localizable.strings */,
 				303A21A82AE394BB00417430 /* You_shall_not_pass.mp3 */,
 				303A21A62AE394B200417430 /* Ta_Da.mp3 */,
 				303A21A42AE394AB00417430 /* Shot2.mp3 */,
@@ -275,7 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				303A219D2AE3948300417430 /* Rooster_Crowing.mp3 in Resources */,
-				30BC28E72AE4D0EC00DFFE4A /* Localizable.strings in Resources */,
+				30BC28EE2AE4D61D00DFFE4A /* Localizable.strings in Resources */,
 				306599E72AE069B900F119A3 /* LaunchScreen.storyboard in Resources */,
 				303A219B2AE3947400417430 /* Banana_Slip.mp3 in Resources */,
 				303A219F2AE3948C00417430 /* Sad_Trombone.mp3 in Resources */,
@@ -373,12 +373,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		30BC28E92AE4D0EC00DFFE4A /* Localizable.strings */ = {
+		30BC28F02AE4D61D00DFFE4A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				30BC28E82AE4D0EC00DFFE4A /* es */,
-				30BC28EA2AE4D0EE00DFFE4A /* pt-BR */,
-				30BC28EB2AE4D0EE00DFFE4A /* en */,
+				30BC28EF2AE4D61D00DFFE4A /* es */,
+				30BC28F12AE4D62100DFFE4A /* pt-BR */,
+				30BC28F22AE4D62200DFFE4A /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -116,10 +116,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 gameVC.slot7Image.image = UIImage(named: "TheBlank")
                 gameVC.slot8Image.image = UIImage(named: "TheBlank")
                 gameVC.slot9Image.image = UIImage(named: "TheBlank")
-                gameVC.p1NameLabel.text = NSLocalizedString("-> Player 1: \(p1name)", comment: "Settings Page's player 1 name label")
+                gameVC.p1NameLabel.text = NSLocalizedString("-> Player 1: ", comment: "Settings Page's player 1 name label") + p1name
                 gameVC.p1NameLabel.textColor = .blue
                 gameVC.p1NameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-                gameVC.p2NameLabel.text = NSLocalizedString("Player 2: \(p2name)", comment: "Settings Page's player 2 name label")
+                gameVC.p2NameLabel.text = NSLocalizedString("Player 2: ", comment: "Settings Page's player 2 name label") + p2name
                 gameVC.p2NameLabel.textColor = .black
                 gameVC.p2NameLabel.font = UIFont.systemFont(ofSize: 20)
                 }
