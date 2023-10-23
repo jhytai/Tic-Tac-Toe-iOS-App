@@ -27,8 +27,8 @@ This is our submission for the Midterm Project.
 - [x] Tab Bar Controller
 - [x] Settings Page (SettingsViewController.swift)
 - [x] Game Page (GameViewController.swift)
-- [ ] Internationalization
-- [ ] Testament Document
+- [x] Internationalization
+- [x] Testament Document
 
 ## Project Requirements ##
 
@@ -52,7 +52,7 @@ This is our submission for the Midterm Project.
 
 	- Your app must use at least two different types of software keyboards. Your app must also detect the type of the keyboard at some point and use it to filter the user’s invalid character input.
 
-- [ ] Internationalization and Localization
+- [x] Internationalization and Localization
 
 	- Your app must be prepared for internationalization and localized to at least two languages, and two regions. The regions must use different decimal separators or some other significant aspect that can be demonstrated in class.
 	- Example: English/US and Spanish/Spain.
