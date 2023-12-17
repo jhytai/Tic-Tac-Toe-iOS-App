@@ -10,11 +10,9 @@ This is our submission for the Midterm Project.
 * Team Name: iCode Duology
 
 	* Name: Josue Han Yan Tai Liu
-		* CWID: 885540690
 		* Email: josue.tai@csu.fullerton.edu
 
 	* Name: Maria Fernandez
-		* CWID: 887569838
 		* Email: mariaibis@csu.fullerton.edu
 
 ## Notes ##
